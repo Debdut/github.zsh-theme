@@ -1,6 +1,15 @@
+SYSTEM_THEME=Light
+
 # Set System Theme on Mac OS
 if [[ "$(uname -s)" == "Darwin" ]]; then
   SYSTEM_THEME=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+fi
+
+#Set System Theme on Linux
+if [[ "$(uname -s)" == "Linux" ]]; then
+  if [[ "$(gsettings get org.gnome.desktop.interface gtk-theme)" == *"dark"* ]]; then
+    SYSTEM_THEME=Dark
+  fi
 fi
 
 GREEN=41
@@ -30,4 +39,5 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{%F{$BLUE}%}git:(%{%F{$RED}%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{%F{$BLUE}%}) %{%F{$YELLOW}%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{%F{$BLUE}%})"
+
 
