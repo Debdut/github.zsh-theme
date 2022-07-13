@@ -1,4 +1,4 @@
-SYSTEM_THEME=Light
+SYSTEM_THEME=Dark
 
 # Set System Theme on Mac OS
 if [[ "$(uname -s)" == "Darwin" ]]; then
@@ -7,8 +7,8 @@ fi
 
 #Set System Theme on Linux
 if [[ "$(uname -s)" == "Linux" ]]; then
-  if [[ "$(gsettings get org.gnome.desktop.interface gtk-theme)" == *"dark"* ]]; then
-    SYSTEM_THEME=Dark
+  if [[ "$(gsettings get org.gnome.desktop.interface gtk-theme)" == *"light"* ]]; then
+    SYSTEM_THEME=Light
   fi
 fi
 
